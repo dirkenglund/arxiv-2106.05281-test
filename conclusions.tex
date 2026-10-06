@@ -1,0 +1,10 @@
+\section{Conclusions}
+
+In this paper we have demonstrated the issues of using a basic kernel deposition strategy when projecting SPH data to a fixed grid in adaptive scenarios. This strategy was shown to be unable to accurately reproduce a linear gradient in density at low grid resolutions, and also led to large errors when projecting an astrophysical example problem. In addition, these issues are also present (if not exacerbated by even poorer sampling) when constructing the smoothed 3D density at a plane through the field.
+
+To resolve inaccuracies in the deposition of SPH data onto fixed grids, we introduced two techniques:
+\begin{enumerate}
+  \item Using a pre-calculated kernel grid to `blit' particles that are smaller than the pixel size to ensure that particles that overlap pixels even at this small scale have their contributions weighted accurately.
+  \item Using subsampling to ensure that gradients of kernels are always well resolved during the projection process.
+\end{enumerate}
+With these two techniques we showed that it is possible to produce converged results with very low errors (less than 0.1\%) even when using a low grid resolution. In adaptive scenarios, we hence recommend the use of subsampling techniques.
